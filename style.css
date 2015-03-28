@@ -1,0 +1,33 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(http://fonts.googleapis.com/css?family=Cantata+One);
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    min-width: 360px; 
+    overflow-x: hidden; 
+}
+
+h1 {
+  font-family: 'Cantata One', serif;
+  font-size: 16pt;
+
+}
+
+input[type="text"], textarea {
+font-family: 'Lato', sans-serif;
+  margin: 0 0 0.8rem 0;
+  padding: 0.5rem;
+  outline: none;
+  width:70%;
+   outline: none;
+    border:solid 1px grey;
+}
+input#save { 
+    font-family: 'Lato', sans-serif;
+    width: auto; 
+}
+
+input.read {
+  width: 10px;
+}

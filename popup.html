@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="jquery-2.1.3.min.js"></script>
+        <script src="mustache.min.js"></script>
+        <script src="popup.js"></script>
+    </head>
+    <body>
+        <h1>BookShelf</h1>
+        <h3>Add a Book</h3>
+        <form id="addbookmark" method="post">
+            <p><label for="name">Name</label><br />
+            <input type="text" id="name" name="name" size="50" value="" /></p>
+            <p><label for="link">Link</label><br />
+            <input type="text" id="link" name="url" size="50" value="" /></p>
+            <p><label for="note">Note</label><br />
+            <textarea id="note" name="note" rows="6" cols="35"></textarea></p>
+            <input type="radio" class="read" name="read" value="unread">Unread
+            <input type="radio" class="read" name="read" value="revisit" checked >Revisit
+
+            <p><label for="shelf">Shelf</label><br />
+            <select name="shelf-list"></select>
+            <p>
+                <input id="save" type="submit" value="Save Bookmark" />
+                <span id="status-display"></span>
+            </p>
+        </form>
+
+        <script id="template" type="x-tmpl-mustache">
+            <select name="shelf-list">{{#shelves}}
+              <option value="{{id}}">{{name}}</option>
+              {{/shelves}}
+            </select>
+
+        </script>
+    </body>
+</html>
