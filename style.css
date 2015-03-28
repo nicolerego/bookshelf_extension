@@ -4,8 +4,15 @@
 body {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    min-width: 360px; 
+    min-width: 300px; 
     overflow-x: hidden; 
+  text-align: center;
+
+}
+
+form {
+  margin: 0 auto;
+  text-align: center;
 }
 
 h1 {
@@ -14,20 +21,53 @@ h1 {
 
 }
 
+h1 span {
+  font-family: 'Lato', sans-serif;
+  font-size: 10pt;
+
+}
+
 input[type="text"], textarea {
 font-family: 'Lato', sans-serif;
-  margin: 0 0 0.8rem 0;
-  padding: 0.5rem;
+  margin: 0 0 0.2rem 0;
+  padding: 0.3rem;
   outline: none;
-  width:70%;
+  width:80%;
    outline: none;
     border:solid 1px grey;
 }
 input#save { 
-    font-family: 'Lato', sans-serif;
-    width: auto; 
+  position: relative;
+  vertical-align: top;
+  text-transform: uppercase;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: white;
+  background: #95ced5;
+  border: 0;
+  border-bottom: 2px solid #95ced5;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #95ced5;
+  box-shadow: inset 0 -2px #95ced5;
+  outline:none;
 }
 
 input.read {
-  width: 10px;
+  width: 15px;
+}
+
+select {
+  text-transform: capitalize;
+}
+
+.loggedIn {
+  display:none;
+}
+
+footer a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  font-size: 14px;
 }

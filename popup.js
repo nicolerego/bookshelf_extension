@@ -1,6 +1,13 @@
 $( document ).ready(function() {
     console.log('working')
 
+
+            // if ($("select[name='shelf-list']").val().length > 1) {
+            //     $('.notLoggedIn').hide();
+
+            // }
+
+
 // This callback function is called when the content script has been 
 // injected and returned its results
 function onPageDetailsReceived(pageDetails)  { 
@@ -15,7 +22,15 @@ $.getJSON('http://localhost:3000/chrome_shelves/1', function(data) {
     var template = $('#template').html();
     var rendered = Mustache.render(template, data)
     $("select[name='shelf-list']").html(rendered)
+    
+    var logged = $('select').val().length
+    console.log(logged)
+    if (logged > 1) {
+        $('.notLoggedIn').hide();
+        $('.loggedIn').show();
+    } 
 })
+
 
 // Global reference to the status display SPAN
 var statusDisplay = null;
@@ -68,7 +83,7 @@ function addBookmark() {
                 window.setTimeout(window.close, 1000);
             } else {
                 // Show what went wrong
-                statusDisplay.innerHTML = 'Error saving: ' + xhr.statusText;
+                statusDisplay.innerHTML = 'Error saving!';
             }
         }
     };
@@ -92,6 +107,7 @@ window.addEventListener('load', function(evt) {
         // content.js into the current tab's HTML
         eventPage.getPageDetails(onPageDetailsReceived);
     });
+
 });
 
 });
