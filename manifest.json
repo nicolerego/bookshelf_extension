@@ -1,6 +1,11 @@
 {
     "manifest_version": 2,
     "name": "BookShelf Extension",
+    "icons": {
+      "128": "icon128.png",
+      "16": "icon16.png",
+      "48": "icon48.png"
+   },
     "description": "POST details of the current page to BookShelf App.",
     "version": "0.1",
     "background": {

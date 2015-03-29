@@ -1,19 +1,9 @@
 $( document ).ready(function() {
-    console.log('working')
-
-
-            // if ($("select[name='shelf-list']").val().length > 1) {
-            //     $('.notLoggedIn').hide();
-
-            // }
-
-
 // This callback function is called when the content script has been 
 // injected and returned its results
 function onPageDetailsReceived(pageDetails)  { 
     document.getElementById('name').value = pageDetails.name; 
     document.getElementById('link').value = pageDetails.link; 
-    document.getElementById('note').innerText = pageDetails.note; 
 } 
 
 // var shelves_url = 'http://localhost:3000/chrome_shelves/1';
@@ -26,6 +16,7 @@ $.getJSON('http://localhost:3000/chrome_shelves/1', function(data) {
     var logged = $('select').val().length
     console.log(logged)
     if (logged > 1) {
+        $('#addbookmark').show();
         $('.notLoggedIn').hide();
         $('.loggedIn').show();
     } 
@@ -37,10 +28,9 @@ var statusDisplay = null;
 
 // POST the data to the server using XMLHttpRequest
 function addBookmark() {
-    // Cancel the form submit
+
     event.preventDefault();
 
-    // The URL to POST our data to
     var postUrl = 'http://localhost:3000/books/add_book_extension';
 
     // Set up an asynchronous AJAX POST request
@@ -52,8 +42,12 @@ function addBookmark() {
     if (name.length > 20) {
         name = name.slice(0,17)+"...";
     }
-    var link = encodeURIComponent(document.getElementById('link').value);
+    var link = document.getElementById('link').value;
+        
     var note = document.getElementById('note').value;
+    if (note.length > 150) {
+        note = note.slice(0,147)+"...";
+    }
     var shelf_id = $('select :selected').val();
   
     var params = {
@@ -78,11 +72,9 @@ function addBookmark() {
         if (xhr.readyState == 4) {
             statusDisplay.innerHTML = '';
             if (xhr.status == 200) {
-                // If it was a success, close the popup after a short delay
                 statusDisplay.innerHTML = 'Saved!';
                 window.setTimeout(window.close, 1000);
             } else {
-                // Show what went wrong
                 statusDisplay.innerHTML = 'Error saving!';
             }
         }
@@ -96,15 +88,9 @@ function addBookmark() {
 
 // When the popup HTML has loaded
 window.addEventListener('load', function(evt) {
-    // Cache a reference to the status display SPAN
     statusDisplay = document.getElementById('status-display');
-    // Handle the bookmark form submit event with our addBookmark function
     document.getElementById('addbookmark').addEventListener('submit', addBookmark);
-    // Get the event page
     chrome.runtime.getBackgroundPage(function(eventPage) {
-        // Call the getPageInfo function in the event page, passing in 
-        // our onPageDetailsReceived function as the callback. This injects 
-        // content.js into the current tab's HTML
         eventPage.getPageDetails(onPageDetailsReceived);
     });
 

@@ -1,5 +1,5 @@
 chrome.runtime.sendMessage({
     'name': document.title,
-    'link': window.location.href,
-    'note': window.getSelection().toString()
+    'link': window.location.href.replace('http://', '').replace('https://', '')
+    // 'note': window.getSelection().toString()
 });
