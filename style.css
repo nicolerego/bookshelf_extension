@@ -2,14 +2,12 @@
 @import url(http://fonts.googleapis.com/css?family=Cantata+One);
 
 body {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    min-width: 300px; 
-    overflow-x: hidden; 
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  min-width: 300px; 
+  overflow-x: hidden; 
   text-align: center;
-
 }
-
 
 form {
   margin: 0 auto;
@@ -20,24 +18,23 @@ form {
 h1 {
   font-family: 'Cantata One', serif;
   font-size: 16pt;
-
 }
 
 h1 span {
   font-family: 'Lato', sans-serif;
   font-size: 10pt;
-
 }
 
 input[type="text"], textarea {
-font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;
   margin: 0 0 0.2rem 0;
   padding: 0.3rem;
   outline: none;
   width:80%;
-   outline: none;
-    border:solid 1px grey;
+  outline: none;
+  border:solid 1px grey;
 }
+
 input#save { 
   position: relative;
   vertical-align: top;
@@ -55,17 +52,11 @@ input#save {
   outline:none;
 }
 
-input.read {
-  width: 15px;
-}
+input.read { width: 15px; }
 
-select {
-  text-transform: capitalize;
-}
+select { text-transform: capitalize; }
 
-.loggedIn {
-  display:none;
-}
+.loggedIn { display:none; }
 
 footer a {
   text-decoration: none;

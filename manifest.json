@@ -19,7 +19,8 @@
     "permissions": [
         "tabs", 
         "http://*/*", 
-        "https://*/*"
+        "https://*/*", 
+        "http://localhost:3000/*"
     ],
     "content_scripts": [ {
         "js": [ "jquery-2.1.3.min.js", "mustache.min.js", "content.js" ],
