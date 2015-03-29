@@ -75,7 +75,6 @@ function addBookmark() {
     // Set correct header for form data 
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-    // Handle request state change events
     xhr.onreadystatechange = function() { 
         
         if (xhr.readyState == 4) {
