@@ -6,7 +6,7 @@
       "16": "icon16.png",
       "48": "icon48.png"
    },
-    "description": "POST details of the current page to BookShelf App.",
+    "description": "Add a book to the BookShelf App.",
     "version": "0.1",
     "background": {
         "scripts": ["event.js"],

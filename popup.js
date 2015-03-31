@@ -5,7 +5,7 @@ function onPageDetailsReceived(pageDetails)  {
     document.getElementById('link').value = pageDetails.link; 
 } 
 
-$.getJSON('http://localhost:3000/chrome_shelves/1', function(data) {
+$.getJSON('http://webbookshelf.herokuapp.com/chrome_shelves/1', function(data) {
     console.log("running templater")
     var template = $('#template').html();
     var rendered = Mustache.render(template, data)
@@ -27,7 +27,7 @@ function addBookmark() {
 
     event.preventDefault();
 
-    var postUrl = 'http://localhost:3000/books/add_book_extension';
+    var postUrl = 'http://webbookshelf.herokuapp.com/books/add_book_extension';
 
     // Set up an asynchronous AJAX POST request
     var xhr = new XMLHttpRequest();
